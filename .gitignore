@@ -17,6 +17,4 @@ gradle.properties/
 gradle/
 gradlew.bat/
 *.iml
-ICDeviceManager-1.0.9_build253/build
-schemas/
 
