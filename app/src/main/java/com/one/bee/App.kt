@@ -23,6 +23,10 @@ import com.one.library.log.HiLogManager
                 override fun enable(): Boolean {
                     return true
                 }
+
+                override fun stackTraceDepth(): Int {
+                    return 0
+                }
             },HiConsolePrinter(),HiFilePrinter.getInstance(applicationContext.cacheDir.absolutePath,0)
         )
     }

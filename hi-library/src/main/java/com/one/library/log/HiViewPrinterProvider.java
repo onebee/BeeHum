@@ -40,7 +40,7 @@ public class HiViewPrinterProvider {
         params.gravity = Gravity.BOTTOM | Gravity.END;
         View floatingView = genFloatingView();
         floatingView.setTag(TAG_FLOATING_VIEW);
-        floatingView.setBackgroundColor(Color.BLACK);
+        floatingView.setBackgroundColor(Color.BLUE);
         floatingView.setAlpha(0.8f);
         params.bottomMargin = HiDisplayUtil.dp2px(100, rootView.getResources());
         rootView.addView(genFloatingView(),params);
@@ -60,7 +60,6 @@ public class HiViewPrinterProvider {
                 }
             }
         });
-        textView.setTextSize(55);
         textView.setText("HiLog");
         return floatingView = textView;
     }
