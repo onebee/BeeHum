@@ -7,9 +7,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 
 import com.one.library.util.HiDisplayUtil;
+import com.one.library.util.HiViewUtil;
 import com.one.ui.R;
 import com.one.ui.tab.common.IHiTabLayout;
 
@@ -19,17 +22,18 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author diaokaibin@gmail.com on 2021/11/11.
  */
 public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTabBottom, HiTabBottomInfo<?>> {
 
-    private List<OnTabSelectedListener<HiTabBottomInfo<?>>> tabSelectedListeners = new ArrayList<>();
+    private final List<OnTabSelectedListener<HiTabBottomInfo<?>>> tabSelectedListeners = new ArrayList<>();
     private HiTabBottomInfo<?> selectedInfo;
     private float bottomAlpha = 1f;
     private float tabBottomHeight = 50;
-    private float bottomLineHeight = 0.5f;
+    private float bottomLineHeight = 5.5f;
     private String bottomLineColor = "#def0e1";
     private List<HiTabBottomInfo<?>> infoList;
 
@@ -52,11 +56,11 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
     }
 
     public HiTabBottomLayout(@NonNull Context context) {
-        super(context);
+        this(context, null);
     }
 
     public HiTabBottomLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public HiTabBottomLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -98,7 +102,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
         }
         this.infoList = infoList;
         // 移除之前已经添加的View
-        for (int i = getChildCount() - 1; i > 0; i++) {
+        for (int i = getChildCount() - 1; i > 0; i--) {
             removeViewAt(i);
         }
         selectedInfo = null;
@@ -130,12 +134,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
             tabBottom.setHiTabInfo(info);
             ll.addView(tabBottom, params);
 
-            tabBottom.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onSelected(info);
-                }
-            });
+            tabBottom.setOnClickListener(v -> onSelected(info));
 
         }
 
@@ -144,7 +143,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
 
         addBottomLine();
         addView(ll, flParams);
-
+        fixContentView();
     }
 
     private void addBottomLine() {
@@ -160,8 +159,8 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
 
         bottomLineParams.gravity = Gravity.BOTTOM;
         bottomLineParams.bottomMargin = HiDisplayUtil.dp2px(tabBottomHeight - bottomLineHeight, getResources());
-        bottomLine.setAlpha(bottomAlpha);
         addView(bottomLine, bottomLineParams);
+        bottomLine.setAlpha(bottomAlpha);
 
     }
 
@@ -178,7 +177,28 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
                 HiDisplayUtil.dp2px(tabBottomHeight)
         );
         params.gravity = Gravity.BOTTOM;
-        view.setAlpha(bottomAlpha);
         addView(view, params);
+        view.setAlpha(bottomAlpha);
+    }
+
+    /**
+     * 修复内容区域的底部 Padding
+     */
+    private void fixContentView() {
+        if (!(getChildAt(0) instanceof ViewGroup)) {
+            return;
+        }
+        ViewGroup rootView = (ViewGroup) getChildAt(0);
+        ViewGroup targetView = HiViewUtil.findTypeView(rootView, RecyclerView.class);
+        if (targetView == null) {
+            targetView = HiViewUtil.findTypeView(rootView, ScrollView.class);
+        }
+        if (targetView == null) {
+            targetView = HiViewUtil.findTypeView(rootView, AbsListView.class);
+        }
+        if (targetView != null) {
+            targetView.setPadding(0, 0, 0, HiDisplayUtil.dp2px(tabBottomHeight, getResources()));
+            targetView.setClipToPadding(false);
+        }
     }
 }
