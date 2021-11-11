@@ -10,3 +10,4 @@ rootProject.name = "BeeHum"
 include ':app'
 include ':hi-library'
 include ':hi-ui'
+include ':common'

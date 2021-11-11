@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             "#ff656667",
             "#ffd44949",
         )
-
         val list = mutableListOf<HiTabBottomInfo<*>>()
         list.add(home)
         list.add(second)
