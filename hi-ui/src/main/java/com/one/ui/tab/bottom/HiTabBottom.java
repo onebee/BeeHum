@@ -24,7 +24,7 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
     private ImageView tabImage;
     private TextView tabName;
 
-    public HiTabBottomInfo<?> getTabInfo() {
+    public HiTabBottomInfo<?> getHiTabInfo() {
         return tabInfo;
     }
 
@@ -46,6 +46,7 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
 
     public HiTabBottom(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 
 
