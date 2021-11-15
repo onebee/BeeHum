@@ -2,15 +2,14 @@ package com.one.bee
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLogManager
 import com.one.library.log.HiViewPrinter
 import com.one.library.util.HiDisplayUtil
 import com.one.ui.tab.bottom.HiTabBottomInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : HiBaseActivity() {
 
     var viewPrinter: HiViewPrinter? = null
 
@@ -79,7 +78,6 @@ class MainActivity : AppCompatActivity() {
 
         tab_layout.addTabSelectedChangeListener { index, prevInfo, nextInfo ->
 
-//            Toast.makeText(this@MainActivity, ""+nextInfo!!.name, Toast.LENGTH_SHORT).show()
         }
         tab_layout.defaultSelected(home)
 

@@ -2,6 +2,7 @@ package com.one.bee
 
 import android.app.Application
 import android.os.Environment
+import com.one.common.ui.component.HiBaseApplication
 import com.one.library.log.HiConsolePrinter
 import com.one.library.log.HiFilePrinter
 import com.one.library.log.HiLogConfig
@@ -10,7 +11,7 @@ import com.one.library.log.HiLogManager
 /**
  * @author  diaokaibin@gmail.com on 2021/11/1.
  */
- class App : Application() {
+ class App :HiBaseApplication() {
 
 
     override fun onCreate() {
