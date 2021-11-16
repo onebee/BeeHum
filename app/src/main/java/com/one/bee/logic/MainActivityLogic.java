@@ -3,6 +3,7 @@ package com.one.bee.logic;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.view.View;
 
 import com.one.bee.R;
@@ -17,6 +18,8 @@ import com.one.library.util.HiDisplayUtil;
 import com.one.ui.tab.bottom.HiTabBottomInfo;
 import com.one.ui.tab.bottom.HiTabBottomLayout;
 import com.one.ui.tab.common.IHiTabLayout;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +36,6 @@ import androidx.fragment.app.FragmentManager;
 public class MainActivityLogic {
 
 
-
     private HiFragmentTabView fragmentTabView;
     private HiTabBottomLayout hiTabBottomLayout;
     private static final String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
@@ -43,10 +45,13 @@ public class MainActivityLogic {
      * 代表activity 提供的一些能力
      */
     private ActivityProvider activityProvider;
-    private List<HiTabBottomInfo<?>> infoList= new ArrayList<>();
+    private List<HiTabBottomInfo<?>> infoList = new ArrayList<>();
 
-    public MainActivityLogic(ActivityProvider activityProvider) {
+    public MainActivityLogic(ActivityProvider activityProvider, Bundle savedInstanceState) {
         this.activityProvider = activityProvider;
+        if (savedInstanceState != null) {
+            currentItemIndex = savedInstanceState.getInt(SAVED_CURRENT_ID);
+        }
         initTabBottom();
     }
 
@@ -122,9 +127,10 @@ public class MainActivityLogic {
             @Override
             public void onTabSelectedChange(int index, @Nullable HiTabBottomInfo<?> prevInfo, @Nullable HiTabBottomInfo<?> nextInfo) {
                 fragmentTabView.setCurrentItem(index);
+                MainActivityLogic.this.currentItemIndex = index;
             }
         });
-        hiTabBottomLayout.defaultSelected(home);
+        hiTabBottomLayout.defaultSelected(infoList.get(currentItemIndex));
 
         hiTabBottomLayout.findTab(third).resetHeight(HiDisplayUtil.dp2px(55));
     }
@@ -133,6 +139,10 @@ public class MainActivityLogic {
         HiTabViewAdapter tabViewAdapter = new HiTabViewAdapter(infoList, activityProvider.getSupportFragmentManager());
         fragmentTabView = activityProvider.findViewById(R.id.fragment_tab_view);
         fragmentTabView.setAdapter(tabViewAdapter);
+    }
+
+    public void onSaveInstanceState(@NotNull Bundle outState) {
+        outState.putInt(SAVED_CURRENT_ID, currentItemIndex);
     }
 
     public interface ActivityProvider {
@@ -144,6 +154,7 @@ public class MainActivityLogic {
 
         String getString(@StringRes int resId);
     }
+
     public HiFragmentTabView getFragmentTabView() {
         return fragmentTabView;
     }
