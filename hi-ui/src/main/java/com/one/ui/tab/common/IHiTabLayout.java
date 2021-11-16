@@ -6,8 +6,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
-
 /**
  * @author diaokaibin@gmail.com on 2021/11/11.
  */
@@ -19,11 +17,11 @@ public interface IHiTabLayout<Tab extends ViewGroup, D> {
 
     void addTabSelectedChangeListener(OnTabSelectedListener<D> listener);
 
-    void inflateInfo(@Nullable List<D> infoList);
+    void inflateInfo(@NotNull List<D> infoList);
 
 
     interface OnTabSelectedListener<D> {
-        void onTabSelectedChange(int index, @Nullable D prevInfo , @Nullable D nextInfo);
+        void onTabSelectedChange(int index, @NotNull D prevInfo , @NotNull D nextInfo);
     }
 
 }
