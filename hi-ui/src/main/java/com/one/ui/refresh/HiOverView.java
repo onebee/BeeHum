@@ -21,15 +21,17 @@ public abstract class HiOverView extends FrameLayout {
          */
         STATE_VISIBLE,
 
-        /**
-         * 超出可刷新距离的状态
-         */
+
         STATE_REFRESH,
 
         /**
          * 超出刷新位置松手后的状态
          */
-        STATE_OVER_RELEASE
+        STATE_OVER_RELEASE,
+        /**
+         * 超出可刷新距离的状态
+         */
+        STATE_OVER
 
     }
 

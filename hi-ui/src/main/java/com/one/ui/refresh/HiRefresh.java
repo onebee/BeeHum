@@ -30,8 +30,5 @@ public interface HiRefresh {
 
         boolean enableRefresh();
 
-
-
-
     }
 }
