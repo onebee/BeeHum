@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.one.library.util.HiDisplayUtil;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -64,6 +66,12 @@ public abstract class HiOverView extends FrameLayout {
 
     public HiOverView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        preInit();
+    }
+
+    protected void preInit() {
+        pullRefreshHeight = HiDisplayUtil.dp2px(66, getResources());
+        init();
     }
 
     public abstract void init();

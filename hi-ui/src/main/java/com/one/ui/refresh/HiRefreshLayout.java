@@ -35,7 +35,7 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
     }
 
     public HiRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public HiRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -76,7 +76,14 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
 
     @Override
     public void setRefreshOverView(HiOverView hiOverView) {
+        if (hiOverView != null) {
+            removeView(hiOverView);
+        }
         this.hiOverView = hiOverView;
+
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+        addView(hiOverView, 0, params);
     }
 
     HiGestureDetector hiGestureDetector = new HiGestureDetector() {
@@ -257,6 +264,34 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
         }
     }
 
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+
+        // 定义head 和 child 的排列位置
+        View head = getChildAt(0);
+        View child = getChildAt(1);
+        if (head != null && child != null) {
+            int childTop = child.getTop();
+            if (state == HiOverView.HiRefreshState.STATE_REFRESH) {
+                head.layout(0, hiOverView.pullRefreshHeight - head.getMeasuredHeight(), right, hiOverView.pullRefreshHeight);
+                child.layout(0, hiOverView.pullRefreshHeight, right, hiOverView.pullRefreshHeight + child.getMeasuredHeight());
+
+            } else {
+                // 非下拉刷新是真实的位移高度
+                head.layout(0, childTop - head.getMeasuredHeight(), right, childTop);
+                child.layout(0, childTop, right, childTop + child.getMeasuredHeight());
+            }
+
+            // 其他的视图
+            View other;
+            for (int i = 2; i < getChildCount(); i++) {
+                other = getChildAt(i);
+                other.layout(0, top, right, bottom);
+            }
+        }
+
+    }
+
     /***
      * 借助Scroller 实现视图的自动滚动
      */
@@ -277,7 +312,6 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
             if (scroller.computeScrollOffset()) {
                 //还未滚动完成
 
-                // TODO :
                 moveDown(lastY - scroller.getCurrY(), false);
 
                 lastY = scroller.getCurrY();
