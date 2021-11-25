@@ -11,6 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeeHum">
         <activity
+            android:name=".handler.Handlerctivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

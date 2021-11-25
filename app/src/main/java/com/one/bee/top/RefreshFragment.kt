@@ -7,17 +7,19 @@ import kotlinx.android.synthetic.main.demo1_fragment.*
 /**
  * @author  diaokaibin@gmail.com on 2021/11/17.
  */
-class Demo2Fragment : HiBaseFragment() {
+class RefreshFragment : HiBaseFragment() {
     
 
     override fun getLayoutId(): Int {
-        return R.layout.demo1_fragment
+        return R.layout.fragment_refresh
     }
 
 
     override fun onResume() {
         super.onResume()
 
-        tv.text= "服装"
+        tv.text= "HiRefreshLayout"
     }
+
+
 }
