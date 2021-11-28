@@ -25,12 +25,13 @@ class RefreshFragment : HiBaseFragment() {
         val overView = HiTextOverView(context!!)
         hi_refresh_layout.setRefreshOverView(overView)
 
+        hi_refresh_layout.setDisableRefreshScroll(false)
 
         hi_refresh_layout.setRefreshListener(object : HiRefresh.HiRefreshListener {
             override fun onRefresh() {
                 android.os.Handler().postDelayed({
                     hi_refresh_layout.refreshFinished()
-                }, 1000)
+                }, 10000)
             }
 
             override fun enableRefresh(): Boolean {

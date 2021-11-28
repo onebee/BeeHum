@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.one.library.log.HiLog;
 import com.one.ui.R;
 import com.one.ui.tab.common.IHiTab;
 
@@ -113,7 +112,7 @@ public class HiTabTop extends RelativeLayout implements IHiTab<HiTabTopInfo<?>> 
 
     @Override
     public void onTabSelectedChange(int index, @Nullable HiTabTopInfo<?> prevInfo, @Nullable HiTabTopInfo<?> nextInfo) {
-        HiLog.i("click index " + index);
+//        HiLog.i("click index " + index);
         if (prevInfo != tabInfo && nextInfo != tabInfo || prevInfo == nextInfo) {
             return;
         }

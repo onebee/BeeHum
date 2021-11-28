@@ -9,6 +9,8 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 
+import com.one.library.log.HiLog;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -109,9 +111,7 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
             }
 
             // 没有刷新或没有达到可以刷新的距离,且头部已经划出或下拉
-            if ((state != HiOverView.HiRefreshState.STATE_REFRESH ||
-                    head.getBottom() <= hiOverView.pullRefreshHeight) && (head.getBottom() > 0 || distanceY <= 0.0F)
-            ) {
+            if ((state != HiOverView.HiRefreshState.STATE_REFRESH || head.getBottom() <= hiOverView.pullRefreshHeight) && (head.getBottom() > 0 || distanceY <= 0.0F)) {
                 // 还在滑动中
                 if (state != HiOverView.HiRefreshState.STATE_OVER_RELEASE) {
                     int seed;
@@ -226,6 +226,7 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View head = getChildAt(0);
 
+        HiLog.i("dispatchTouchEvent  ");
         if (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_CANCEL || ev.getAction() == MotionEvent.ACTION_POINTER_INDEX_MASK) {
             //松开手
             if (head.getBottom() > 0) {
@@ -239,6 +240,7 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
         }
 
         boolean consumed = gestureDetector.onTouchEvent(ev);
+        HiLog.i("dispatchTouchEvent  consumed " + consumed + "  , lastY = " + lastY + " ev.getAction() = " + ev.getAction());
         if ((consumed || (state != HiOverView.HiRefreshState.STATE_INIT && state != HiOverView.HiRefreshState.STATE_REFRESH)) && head.getBottom() != 0) {
             //让父类接收不到真实的事件
             ev.setAction(MotionEvent.ACTION_CANCEL);
@@ -272,6 +274,10 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
         View child = getChildAt(1);
         if (head != null && child != null) {
             int childTop = child.getTop();
+
+            HiLog.i(" childTop = " + childTop);
+            HiLog.i(" head.getMeasuredHeight() = " + head.getMeasuredHeight());
+            HiLog.i(" child.getMeasuredHeight() = " + child.getMeasuredHeight());
             if (state == HiOverView.HiRefreshState.STATE_REFRESH) {
                 head.layout(0, hiOverView.pullRefreshHeight - head.getMeasuredHeight(), right, hiOverView.pullRefreshHeight);
                 child.layout(0, hiOverView.pullRefreshHeight, right, hiOverView.pullRefreshHeight + child.getMeasuredHeight());
