@@ -56,8 +56,8 @@ public class HiViewPager extends ViewPager {
         nextPosition = getCurrentItem() + 1;
         // 下一个索引大于adapter 的 View 的最大数量时候 重新开始
         if (nextPosition >= getAdapter().getCount()) {
-            // 获取第一个item 的索引 TODO
-//            nextPosition = getAdapter()
+            // 获取第一个item 的索引
+            nextPosition = ((HiBannerAdapter)getAdapter()).getFirstItem();
         }
         setCurrentItem(nextPosition, true);
         return nextPosition;
