@@ -3,6 +3,8 @@ package com.one.bee.top
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -45,6 +47,19 @@ class BannerFragment : HiBaseFragment() {
     override fun onResume() {
         super.onResume()
 
+
+        val viewGroup = layoutView as ViewGroup
+        val childCount = viewGroup.childCount
+        HiLog.i(" childCount = " + childCount)
+
+        for (i in 0..childCount) {
+
+
+            viewGroup.getChildAt(i)
+
+
+
+        }
         initView(HiCircleIndicator(context!!),false)
         auto_play.setOnCheckedChangeListener { buttonView, isChecked ->
             autoPlay = isChecked
