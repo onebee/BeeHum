@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.one.bee.R;
 import com.one.bee.top.Demo10Fragment;
 import com.one.bee.top.Demo11Fragment;
-import com.one.bee.top.Demo1Fragment;
+import com.one.bee.top.BannerFragment;
 import com.one.bee.top.RefreshFragment;
 import com.one.bee.top.Demo3Fragment;
 import com.one.bee.top.Demo4Fragment;
@@ -46,7 +46,7 @@ public class HomePageFragment extends HiBaseFragment {
     };
 
     Class[] fs = new Class[]{
-            Demo1Fragment.class,
+            BannerFragment.class,
             RefreshFragment.class,
             Demo3Fragment.class,
             Demo4Fragment.class,
