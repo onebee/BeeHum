@@ -150,7 +150,7 @@ public class HiBannerAdapter extends PagerAdapter {
         return layoutInflater.inflate(layoutResId, parent, false);
     }
 
-    public void setBannerClickListener(IHiBanner.OnBannerClickListener bannerClickListener) {
+    public void setOnBannerClickListener(IHiBanner.OnBannerClickListener bannerClickListener) {
         this.bannerClickListener = bannerClickListener;
     }
 
