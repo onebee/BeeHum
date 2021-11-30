@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 import com.one.ui.R;
+import com.one.ui.banner.core.HiBannerDelegate;
 import com.one.ui.banner.core.HiBannerMo;
 import com.one.ui.banner.core.IBindAdapter;
 import com.one.ui.banner.core.IHiBanner;
@@ -98,6 +99,12 @@ public class HiBanner extends FrameLayout implements IHiBanner {
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
         delegate.setOnPageChangeListener(onPageChangeListener);
     }
+
+    @Override
+    public void setScrollDuration(int duration) {
+        delegate.setScrollDuration(duration);
+    }
+
 
     @Override
     public void setOnBannerClickListener(OnBannerClickListener onBannerClickListener) {

@@ -68,6 +68,8 @@ class BannerFragment : HiBaseFragment() {
         banner.setAutoPlay(autoPlay)
         banner.setIntervalTime(2000)
         banner.setHiIndicator(indicator)
+
+        banner.setScrollDuration(500)
         // 自定义布局
         banner.setBannerData(R.layout.banner_item_layout, moList)
         banner.setBindAdapter { viewHolder, mo, pos ->

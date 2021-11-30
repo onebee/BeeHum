@@ -1,15 +1,11 @@
-package com.one.ui.banner;
+package com.one.ui.banner.core;
 
 import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.one.ui.R;
-import com.one.ui.banner.core.HiBannerAdapter;
-import com.one.ui.banner.core.HiBannerMo;
-import com.one.ui.banner.core.HiViewPager;
-import com.one.ui.banner.core.IBindAdapter;
-import com.one.ui.banner.core.IHiBanner;
+import com.one.ui.banner.HiBanner;
 import com.one.ui.banner.indicator.HiCircleIndicator;
 import com.one.ui.banner.indicator.HiIndicator;
 
@@ -37,6 +33,8 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
     private IHiBanner.OnBannerClickListener onBannerClickListener;
     private HiViewPager hiViewPager;
 
+
+    private int scrollerDuration = -1;
 
     public HiBannerDelegate(Context context, HiBanner banner) {
         this.context = context;
@@ -97,6 +95,15 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
     }
 
     @Override
+    public void setScrollDuration(int duration) {
+
+        this.scrollerDuration = duration;
+        if (hiViewPager != null && duration > 0) {
+            hiViewPager.setScrollDuration(duration);
+        }
+    }
+
+    @Override
     public void setOnBannerClickListener(OnBannerClickListener onBannerClickListener) {
 
     }
@@ -120,6 +127,10 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
         hiViewPager.setAutoPlay(autoPlay);
 
         hiViewPager.setAdapter(adapter);
+
+        if (scrollerDuration > 0) {
+            hiViewPager.setScrollDuration(scrollerDuration);
+        }
 
         if (loop || autoPlay && adapter.getRealCount() != 0) {
             // 设置无限轮播
@@ -160,7 +171,7 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
             this.onPageChangeListener.onPageSelected(position);
         }
         if (indicator != null) {
-            indicator.onPointChange(position,adapter.getRealCount());
+            indicator.onPointChange(position, adapter.getRealCount());
         }
     }
 
