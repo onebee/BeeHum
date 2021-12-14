@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.one.bee.R
+import com.one.library.log.HiLog
+import kotlinx.android.synthetic.main.fragment_first.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,7 +23,7 @@ class ThirdFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    val TAG = "ThirdFragment"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -56,5 +58,27 @@ class ThirdFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        HiLog.i("$TAG onResume()")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        HiLog.i("$TAG onStart()")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        HiLog.i("$TAG onPause()")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        HiLog.i("$TAG onDestroyView()")
     }
 }
