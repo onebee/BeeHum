@@ -18,7 +18,7 @@ abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
         this.mData = data
     }
 
-    abstract fun onBindData(holder: RecyclerView.ViewHolder, pos: Int)
+    abstract fun onBindData(holder: VH, pos: Int)
 
     open fun getItemLayoutRes(): Int {
         return -1
