@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
 
 
+    private lateinit var mAdapter: HiAdapter
     var mData: DATA? = null
 
     init {
@@ -27,11 +28,25 @@ abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
         return null
     }
 
-    fun refreshItem(){
 
+    fun setAdapter(adapter: HiAdapter) {
+        this.mAdapter = adapter
     }
 
-    fun removeItem(){}
+    fun refreshItem() {
+        mAdapter.refreshItem(this)
+    }
+
+    fun removeItem() {
+        mAdapter.removeItem(this)
+    }
+
+    /**
+     * 该item 在列表上占据几列
+     */
+    fun getSpanSize(): Int {
+        return 0
+    }
 
 
 }
