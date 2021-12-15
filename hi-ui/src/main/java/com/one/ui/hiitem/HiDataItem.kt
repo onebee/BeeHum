@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * @author  diaokaibin@gmail.com on 2021/12/15.
  */
-abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
+abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA?) {
 
 
-    private lateinit var mAdapter: HiAdapter
-    var mData: DATA? = null
+    private var mAdapter: HiAdapter? = null
+    private var mData: DATA? = null
 
     init {
         this.mData = data
@@ -34,11 +34,15 @@ abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
     }
 
     fun refreshItem() {
-        mAdapter.refreshItem(this)
+        if (mAdapter != null) {
+            mAdapter!!.refreshItem(this)
+        }
     }
 
     fun removeItem() {
-        mAdapter.removeItem(this)
+        if (mAdapter != null) {
+            mAdapter!!.removeItem(this)
+        }
     }
 
     /**
@@ -48,6 +52,19 @@ abstract class HiDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA) {
         return 0
     }
 
+    /**
+     * 该item被滑进屏幕
+     */
+    open fun onViewAttachedToWindow(holder: VH) {
+
+    }
+
+    /**
+     * 该item被滑出屏幕
+     */
+    open fun onViewDetachedFromWindow(holder: VH) {
+
+    }
 
 }
 

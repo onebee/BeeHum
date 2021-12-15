@@ -11,7 +11,7 @@ import com.one.ui.hiitem.HiDataItem
  */
 class GirdDataItem(data: ItemData):HiDataItem<ItemData, GirdDataItem.MyHolder>(data) {
 
-    inner class MyHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+     class MyHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var imageView:ImageView? = null
 
         init {
