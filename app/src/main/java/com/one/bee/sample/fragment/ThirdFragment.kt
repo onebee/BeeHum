@@ -1,10 +1,12 @@
 package com.one.bee.sample.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.one.bee.R
 import com.one.library.log.HiLog
 import kotlinx.android.synthetic.main.fragment_first.*
@@ -80,5 +82,16 @@ class ThirdFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         HiLog.i("$TAG onDestroyView()")
+    }
+
+    inner class RLM : RecyclerView.LayoutManager() {
+        override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams {
+            TODO("Not yet implemented")
+        }
+
+
+        override fun isAutoMeasureEnabled(): Boolean {
+            return true
+        }
     }
 }
