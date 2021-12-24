@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeeHum" >
-
+        <activity
+            android:name=".nav.NavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_nav" />
         <activity
             android:name=".sample.fragment.FragmentSampleActivity"
             android:exported="true" />
