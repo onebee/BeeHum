@@ -29,8 +29,8 @@ class HiExecutorSamplerFragment : HiBaseFragment() {
 
             for (i in 0..10 step 1) {
                 HiExecutor.execute(i) {
-//                    Thread.sleep((10000 - i * 100).toLong())
-                    Thread.sleep((1000).toLong())
+                    Thread.sleep((1000 - i * 100).toLong())
+//                    Thread.sleep((1000).toLong())
                 }
             }
 
@@ -64,6 +64,14 @@ class HiExecutorSamplerFragment : HiBaseFragment() {
                 override fun onCompleted(t: String) {
                     HiLog.i( " onCompleted 线程 " + Thread.currentThread().name)
                     HiLog.i( " onCompleted 任务结果 " + t)
+
+                    tv.text="加载完成"
+                }
+
+                override fun onPrepare() {
+                    super.onPrepare()
+
+                    tv.text= "loading .... "
                 }
             })
 

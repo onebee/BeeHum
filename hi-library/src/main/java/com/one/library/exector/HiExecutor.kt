@@ -139,7 +139,7 @@ object HiExecutor {
         }
 
         override fun compareTo(other: PriorityRunnable): Int {
-            return if (this.priority < other.priority) 1 else if (this.priority > other.priority) -1 else 0;
+            return if (this.priority < other.priority) 1 else if (this.priority > other.priority) -1 else 0
         }
 
     }
