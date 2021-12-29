@@ -1,11 +1,16 @@
 package com.one.bee.top
 
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import com.one.bee.R
+import com.one.bee.sample.coroutine.CoroutinScene3
 import com.one.common.ui.component.HiBaseFragment
 import com.one.library.exector.HiExecutor
 import com.one.library.log.HiLog
 import kotlinx.android.synthetic.main.demo1_fragment.tv
 import kotlinx.android.synthetic.main.exectuor_fragment.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * @author  diaokaibin@gmail.com on 2021/11/17.
@@ -80,5 +85,21 @@ class HiExecutorSamplerFragment : HiBaseFragment() {
         }
 
         tv.text = "HiExecutors Sample"
+
+        btn_c.setOnClickListener {
+
+            lifecycleScope.launch{
+
+
+              val s =   CoroutinScene3.parseAssetsFile(activity!!.assets,"config.json")
+
+                Log.e("-----","  pasrse " + s)
+
+            }
+
+
+            Log.e("-----","  after click ")
+        }
+
     }
 }

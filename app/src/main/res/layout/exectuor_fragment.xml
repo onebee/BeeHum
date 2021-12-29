@@ -47,4 +47,13 @@
         android:text="异步任务结果回调通知主线程"
         />
 
+
+    <Button
+        android:id="@+id/btn_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="协程演示"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
