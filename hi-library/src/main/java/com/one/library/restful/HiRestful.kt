@@ -34,7 +34,7 @@ open class HiRestful constructor(val baseUrl: String, val callFactory: HiCall.Fa
             }
 
             val request = methodParser.newRequest()
-            callFactory.newCall(request)
+//            callFactory.newCall(request)
 
             // 返回一个代理的call 对象
             scheduler.newCall(request)
