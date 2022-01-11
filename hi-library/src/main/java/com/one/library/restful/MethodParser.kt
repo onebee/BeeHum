@@ -12,18 +12,18 @@ import java.lang.reflect.Type
 class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
 
 
-    private lateinit var domainUrl: String
+    private  var domainUrl: String?=null
 
     /**
      * 是否是表单提交
      */
-    private var formPos: Boolean = true
+    private var formPost: Boolean = true
     private var httpMethod: Int = 0
     private lateinit var relativeUrl: String
     private var returnType: Type? = null
 
     private var headers: MutableMap<String, String> = mutableMapOf()
-    private var paramters: MutableMap<String, Any> = mutableMapOf()
+    private var paramters: MutableMap<String, String> = mutableMapOf()
 
     init {
 
@@ -49,7 +49,7 @@ class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
      */
     private fun parseMethodReturnType(method: Method) {
 
-        if (method.returnType != HiCall::class) {
+        if (method.returnType != HiCall::class.java) {
             throw IllegalStateException(
                 String.format(
                     "method %s is must be type of HiCall.class",
@@ -108,7 +108,7 @@ class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
             if (annotation is Filed) {
                 val key = annotation.value
                 val value = args[index]
-                paramters[key] = value
+                paramters[key] = value.toString()
             } else if (annotation is Path) {
                 val replaceName = annotation.value
                 val replacement = value.toString()
@@ -155,7 +155,7 @@ class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
             } else if (an is POST) {
                 relativeUrl = an.value
                 httpMethod = HiRequest.METHOD.POST
-                formPos = an.formPost
+                formPost = an.formPost
             } else if (an is Headers) {
                 val headersArray: Array<out String> = an.value
 
@@ -204,6 +204,7 @@ class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
         request.parameters = paramters
         request.headers = headers
         request.httpMethod = httpMethod
+        request.formPost = formPost
         return request
     }
 
