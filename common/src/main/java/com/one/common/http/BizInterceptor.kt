@@ -1,4 +1,4 @@
-package com.one.bee.http
+package com.one.common.http
 
 import com.one.library.log.HiLog
 import com.one.library.restful.HiInterceptor

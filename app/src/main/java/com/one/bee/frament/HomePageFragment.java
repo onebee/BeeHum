@@ -10,7 +10,7 @@ import com.one.bee.top.BannerFragment;
 import com.one.bee.top.RefreshFragment;
 import com.one.bee.top.Demo3Fragment;
 import com.one.bee.top.HiExecutorSamplerFragment;
-import com.one.bee.top.Demo5Fragment;
+import com.one.bee.top.HttpFragment;
 import com.one.bee.top.Demo6Fragment;
 import com.one.bee.top.Demo7Fragment;
 import com.one.bee.top.Demo8Fragment;
@@ -50,7 +50,7 @@ public class HomePageFragment extends HiBaseFragment {
             RefreshFragment.class,
             Demo3Fragment.class,
             HiExecutorSamplerFragment.class,
-            Demo5Fragment.class,
+            HttpFragment.class,
             Demo6Fragment.class,
             Demo7Fragment.class,
             Demo8Fragment.class,

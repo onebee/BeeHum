@@ -1,8 +1,6 @@
-package com.one.bee.http.api
+package com.one.common.http.api
 
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
-import com.one.bee.http.PersonBean
+import com.one.common.http.PersonBean
 import com.one.library.restful.HiCall
 import com.one.library.restful.annotation.Filed
 import com.one.library.restful.annotation.GET

@@ -1,12 +1,9 @@
 package com.one.bee.top
 
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
 import com.one.bee.R
-import com.one.bee.http.ApiFactory
-import com.one.bee.http.ApiFactory.create
-import com.one.bee.http.PersonBean
-import com.one.bee.http.api.TestApi
+import com.one.common.http.ApiFactory
+import com.one.common.http.PersonBean
+import com.one.common.http.api.TestApi
 import com.one.common.ui.component.HiBaseFragment
 import com.one.library.log.HiLog
 import com.one.library.restful.HiCallback
@@ -16,18 +13,18 @@ import kotlinx.android.synthetic.main.demo1_fragment.*
 /**
  * @author  diaokaibin@gmail.com on 2021/11/17.
  */
-class Demo5Fragment : HiBaseFragment() {
+class HttpFragment : HiBaseFragment() {
     
 
     override fun getLayoutId(): Int {
-        return R.layout.demo1_fragment
+        return R.layout.http_fragment
     }
 
 
     override fun onResume() {
         super.onResume()
 
-        tv.text= "零食"
+        tv.text= "Http"
 
         btn_test.setOnClickListener {
 

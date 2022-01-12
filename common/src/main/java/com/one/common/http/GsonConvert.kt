@@ -1,4 +1,4 @@
-package com.one.bee.http
+package com.one.common.http
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
