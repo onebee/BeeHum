@@ -9,7 +9,7 @@ import java.lang.reflect.Type
 /**
  * @author  diaokaibin@gmail.com on 2021/12/29.
  */
-class MethodParser(val baseUrl: String, method: Method, args: Array<Any>) {
+class MethodParser(private val baseUrl: String, method: Method, args: Array<Any>) {
 
 
     private  var domainUrl: String?=null

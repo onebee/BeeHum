@@ -7,14 +7,10 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * @author  diaokaibin@gmail.com on 2021/12/29.
  */
-open class HiRestful constructor(val baseUrl: String, val callFactory: HiCall.Factory) {
+open class HiRestful constructor(private val baseUrl: String, private val callFactory: HiCall.Factory) {
     private var interceptors: MutableList<HiInterceptor> = mutableListOf()
     private var methodService: ConcurrentHashMap<Method, MethodParser> = ConcurrentHashMap()
-    private var scheduler: Scheduler
-
-    init {
-        scheduler = Scheduler(callFactory, interceptors)
-    }
+    private var scheduler: Scheduler = Scheduler(callFactory, interceptors)
 
     fun addInterceptor(interceptor: HiInterceptor) {
         interceptors.add(interceptor)
