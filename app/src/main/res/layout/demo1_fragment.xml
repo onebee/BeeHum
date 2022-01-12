@@ -17,27 +17,13 @@
         />
 
     <Button
-        android:text="取消"
+        android:text="test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_cancel"
+        android:id="@+id/btn_test"
         />
 
 
-    <Button
-        android:text="开始"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_start"
 
-        />
-
-    <Button
-        android:text="修改参数"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_update"
-
-        />
 
 </LinearLayout>

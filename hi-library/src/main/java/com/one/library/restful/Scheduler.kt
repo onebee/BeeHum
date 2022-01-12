@@ -38,14 +38,12 @@ class Scheduler(
             delegate.enqueue(object : HiCallback<T> {
                 override fun onSuccess(response: HiResponse<T>) {
                     dispatchInterceptor(request, response)
-                    if (callback != null) {
-                        callback.onSuccess(response)
-                    }
+                    callback.onSuccess(response)
 
                 }
 
                 override fun onFailed(throwable: Throwable) {
-                    if (callback != null) callback.onFailed(throwable)
+                    callback.onFailed(throwable)
                 }
 
             })
@@ -53,8 +51,8 @@ class Scheduler(
         }
 
         internal inner class InterceptorChain(
-            val request: HiRequest,
-            val response: HiResponse<T>?
+            private val request: HiRequest,
+            private val response: HiResponse<T>?
         ) : HiInterceptor.Chain {
 
             /**

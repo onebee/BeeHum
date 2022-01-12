@@ -13,6 +13,8 @@ class BizInterceptor: HiInterceptor {
             val request = chain.request()
             request.addHeader("token", " xxxxxxxxxxxxx")
 
+            HiLog.dt("BizInterceptor",chain.request().headers)
+
         }else if (chain.response() != null) {
 
             HiLog.dt("BizInterceptor",chain.request().endPointUrl())
