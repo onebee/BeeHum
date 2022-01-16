@@ -6,7 +6,7 @@ import com.one.library.restful.HiRestful
  * @author  diaokaibin@gmail.com on 2022/1/11.
  */
 object ApiFactory {
-    private val baseUrl = "https://wanandroid.com/";
+    private const val baseUrl = "http://10.0.2.2:5088/"
     private val hiRestful = HiRestful(baseUrl, RetrofitCallFactory(baseUrl))
 
     init {

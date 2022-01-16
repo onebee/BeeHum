@@ -8,8 +8,8 @@ import android.text.InputType
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.one.common.R
@@ -122,24 +122,28 @@ open class InputItemLayout : LinearLayout {
         editText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize.toFloat())
 
         editText.setBackgroundColor(Color.TRANSPARENT)
-        editText.gravity = Gravity.LEFT and (Gravity.CENTER)
+        editText.gravity = Gravity.LEFT or (Gravity.CENTER)
 
-        when (inputType) {
-            0 -> {
-                editText.inputType = InputType.TYPE_TEXT_VARIATION_NORMAL
-
-            }
-            1 -> {
-                editText.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
-
-            }
-            2 -> {
-                editText.inputType = InputType.TYPE_NUMBER_VARIATION_NORMAL
-            }
+        if (inputType == 0) {
+            editText.inputType = InputType.TYPE_CLASS_TEXT
+        } else if (inputType == 1) {
+            editText.inputType =
+                InputType.TYPE_TEXT_VARIATION_PASSWORD or (InputType.TYPE_CLASS_TEXT)
+        } else if (inputType == 2) {
+            editText.inputType = InputType.TYPE_CLASS_NUMBER
         }
+
+        this.editText = editText
         addView(editText)
         array.recycle()
 
+    }
+
+
+    var editText: EditText? = null
+    @JvmName("getEditText1")
+    fun getEditText(): EditText? {
+        return editText
     }
 
     private fun parseTitleStyle(resId: Int, title: String?) {
@@ -153,7 +157,7 @@ open class InputItemLayout : LinearLayout {
 
         val titleSize = array.getDimensionPixelSize(
             R.styleable.titleTextAppearance_titleSize,
-            applyUnit(TypedValue.COMPLEX_UNIT_SP, 15f)
+            applyUnit(TypedValue.COMPLEX_UNIT_SP, 8f)
         )
 
 
@@ -166,13 +170,13 @@ open class InputItemLayout : LinearLayout {
 
         titleView.textSize = titleSize.toFloat()
         titleView.setTextColor(titleColor)
-        titleView.layoutParams = LinearLayout.LayoutParams(
+        titleView.layoutParams = LayoutParams(
             LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.MATCH_PARENT
+            LayoutParams.MATCH_PARENT
         )
 
         titleView.minWidth = minWidth
-        titleView.gravity = Gravity.LEFT and (Gravity.CENTER)
+        titleView.gravity = Gravity.CENTER_VERTICAL or Gravity.START
 
         titleView.text = title
 
@@ -204,9 +208,9 @@ open class InputItemLayout : LinearLayout {
 
             canvas!!.drawLine(
                 bottomLine.leftMargin.toFloat(),
-                (height-bottomLine.height).toFloat(),
+                (height - bottomLine.height).toFloat(),
                 measuredWidth - bottomLine.rightMargin.toFloat(),
-                (height-bottomLine.height).toFloat(),
+                (height - bottomLine.height).toFloat(),
                 bottomPaint
             )
 

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <com.one.common.ui.view.IconFontTextView
+            android:id="@+id/action_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="@string/if_back"
+            android:textSize="24sp"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+
+            />
+
+        <TextView
+            android:id="@+id/action_register"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="6dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="注册"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_d1d2"
+
+        />
+
+    <com.one.common.ui.view.InputItemLayout
+        android:id="@+id/input_item_username"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:inputTextAppearance="@style/inputTextAppearance"
+        app:titleTextAppearance="@style/titleTextAppearance"
+        app:bottomLineAppearance="@style/leftMargin_lineAppearance"
+        app:topLineAppearance="@style/lineAppearance"
+        app:title="用户名"
+        app:hint="请输入用户名"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+
+        />
+
+    <com.one.common.ui.view.InputItemLayout
+        android:id="@+id/input_item_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        app:inputTextAppearance="@style/inputTextAppearance"
+        app:titleTextAppearance="@style/titleTextAppearance"
+        app:bottomLineAppearance="@style/lineAppearance"
+        app:title="密码"
+        app:hint="请输入密码"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        app:inputType="password"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/action_login"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/white"
+        android:text="登录"
+        android:textSize="16sp"
+        app:cornerRadius="6dp"
+        android:backgroundTint="@color/color_dd2"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/color_646"
+        android:text="提示: 如果你忘记密码,请重新注册即可"
+        android:textSize="12sp"
+
+        />
+</LinearLayout>
