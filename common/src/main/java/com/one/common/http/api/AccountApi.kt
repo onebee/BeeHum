@@ -18,4 +18,13 @@ interface AccountApi {
         @Filed("password") psd: String
     ): HiCall<String>
 
+
+    @POST("user/register")
+    fun register(
+        @Filed("imoocId") imoocId: String,
+        @Filed("orderId") orderId: String,
+        @Filed("userName") userName: String,
+        @Filed("password") psd: String
+    ): HiCall<String>
+
 }
