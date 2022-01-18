@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.one.annotation.Destination
 import com.one.bee.databinding.FragmentNotificationsBinding
 
-
+@Destination(pageUrl = "main/tabs/notification",asStarter = false)
 class NotificationsFragment : Fragment() {
 
   private lateinit var notificationsViewModel: NotificationsViewModel
