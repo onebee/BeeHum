@@ -32,12 +32,12 @@ import androidx.fragment.app.Fragment;
  */
 public class HomePageFragment extends HiBaseFragment {
     String[] tabsStr = new String[]{
-            "热门",
-            "服装",
-            "数码",
-            "鞋子",
-            "零食",
-            "家电",
+            "轮播",
+            "下拉刷新",
+            "RecyclerView",
+            "协程",
+            "网络框架",
+            "ARouter",
             "汽车",
             "百货",
             "家居",

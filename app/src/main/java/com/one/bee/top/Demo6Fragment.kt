@@ -11,13 +11,16 @@ class Demo6Fragment : HiBaseFragment() {
     
 
     override fun getLayoutId(): Int {
-        return R.layout.demo1_fragment
+        return R.layout.arouter_fragment
     }
 
 
     override fun onResume() {
         super.onResume()
 
-        tv.text= "家电"
+        tv.text= "Hi ARouter"
+
+
+
     }
 }
