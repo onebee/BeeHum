@@ -1,6 +1,7 @@
 package com.one.bee
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLogManager
