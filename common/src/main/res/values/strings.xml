@@ -42,4 +42,10 @@
     <string name="if_right_arrow">&#xe669;</string>
     <string name="if_alipay">&#xe674;</string>
     <string name="if_wxpay">&#xe62d;</string>
+
+
+    <string name="item_notify">课程通知</string>
+    <string name="item_history">浏览历史</string>
+    <string name="item_address">收货地址</string>
+    <string name="item_collection">收藏记录</string>
 </resources>

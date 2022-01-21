@@ -42,6 +42,8 @@ class HiARouterFragment : HiBaseFragment() {
 
         }
 
+
+
     }
 
     private fun navigation(path: String) {

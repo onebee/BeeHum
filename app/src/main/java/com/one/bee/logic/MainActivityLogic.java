@@ -100,7 +100,7 @@ public class MainActivityLogic {
         );
 
         HiTabBottomInfo five = new HiTabBottomInfo<>(
-                "five",
+                "个人",
                 b1,
                 b2,
                 defaultColor,
