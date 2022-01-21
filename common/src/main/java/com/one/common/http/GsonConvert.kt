@@ -21,7 +21,7 @@ class GsonConvert : HiConvert {
         try {
             var jsonObject = JSONObject(rawData)
             response.code = jsonObject.optInt("code")
-            response.msg = jsonObject.optString("msg")
+            response.msg = jsonObject.optString("message")
             val data = jsonObject.opt("data")
 
             if ((data is JSONObject) or (data is JSONArray)) {

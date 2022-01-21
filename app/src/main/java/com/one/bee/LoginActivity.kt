@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.one.common.http.ApiFactory
 import com.one.common.http.api.AccountApi
 import com.one.common.ui.component.HiBaseActivity
@@ -12,7 +13,7 @@ import com.one.library.restful.HiCallback
 import com.one.library.restful.HiResponse
 import com.one.library.util.SPUtil
 import kotlinx.android.synthetic.main.activity_login.*
-
+@Route(path = "/account/login")
 class LoginActivity : HiBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

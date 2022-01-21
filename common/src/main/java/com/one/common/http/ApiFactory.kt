@@ -1,5 +1,6 @@
 package com.one.common.http
 
+import com.one.common.http.api.HttpStatusInterceptor
 import com.one.library.restful.HiRestful
 
 /**
@@ -10,8 +11,8 @@ object ApiFactory {
     private val hiRestful = HiRestful(baseUrl, RetrofitCallFactory(baseUrl))
 
     init {
-
         hiRestful.addInterceptor(BizInterceptor())
+        hiRestful.addInterceptor(HttpStatusInterceptor())
     }
 
     fun <T> create(service: Class<T>): T {
