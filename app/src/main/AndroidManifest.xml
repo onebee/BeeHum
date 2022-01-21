@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BeeHum"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".arouter.DegradeGlobalActivity"
+            android:exported="false" />
+        <activity
             android:name=".arouter.VipActivity"
             android:exported="false" />
         <activity

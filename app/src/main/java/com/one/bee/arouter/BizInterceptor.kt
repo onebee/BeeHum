@@ -1,8 +1,11 @@
 package com.one.bee.arouter
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.Postcard
+import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
@@ -11,7 +14,7 @@ import java.lang.RuntimeException
 /**
  * @author  diaokaibin@gmail.com on 2022/1/20.
  */
-@Route(path = "biz_interceptor")
+@Interceptor(name = "biz_interceptor", priority = 9)
 class BizInterceptor : IInterceptor {
 
     private var context: Context? = null
@@ -37,6 +40,9 @@ class BizInterceptor : IInterceptor {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

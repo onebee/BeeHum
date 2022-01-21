@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".arouter.ProfileActivity">
-
+    tools:context=".arouter.DegradeGlobalActivity">
 
     <TextView
+        android:text="全局的统一错误页"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="33sp"
-        android:textColor="@color/design_default_color_primary"
-        android:text="需要登录"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
