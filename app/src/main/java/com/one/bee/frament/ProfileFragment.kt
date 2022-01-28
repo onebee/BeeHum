@@ -47,6 +47,12 @@ class ProfileFragment : HiBaseFragment() {
         super.onResume()
         queryLoginUser()
         queryCourseNotice()
+
+        val list = arrayListOf<Notice>()
+        list.add(Notice("1","one","recommend","推荐","Flutter","http://10.0.2.2:5088/swagger-ui.html#/","https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1114%2F062021132H5%2F210620132H5-1-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645971935&t=49100a3de7050f6089b068f7cff1c8e0","222"))
+        list.add(Notice("1","two","hhh","推荐aa","Flutter22","http://10.0.2.2:5088/swagger-ui.html#/","https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242254305255-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645972573&t=ba64234e1cc526e8c4d0914012371abc","222"))
+        val userProfile= UserProfile(true,10,5,"one",55,"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F21092422292J5A-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645971935&t=0636a6ba6bb50abd43b3a66211221b33",list)
+        updateUI(userProfile)
     }
 
     private fun queryCourseNotice() {
@@ -147,7 +153,8 @@ class ProfileFragment : HiBaseFragment() {
         }
 
         hi_banner.setOnBannerClickListener { viewHolder, bannerMo, position ->
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(bannerNoticeList[position].url))
+//            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(bannerNoticeList[position].url))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://10.0.2.2:5088/swagger-ui.html"))
             startActivity(intent)
         }
 
