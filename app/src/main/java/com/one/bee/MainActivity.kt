@@ -1,5 +1,6 @@
 package com.one.bee
 
+import android.content.Intent
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.one.bee.logic.MainActivityLogic
@@ -24,8 +25,6 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         viewPrinter!!.viewProvider.showFloatingView()
 
 
-
-
     }
 
 
@@ -34,5 +33,13 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         super.onSaveInstanceState(outState)
         activityLogic!!.onSaveInstanceState(outState);
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val fragments = supportFragmentManager.fragments
+        for (fragment in fragments) {
+            fragment.onActivityResult(requestCode,resultCode, data)
+        }
     }
 }

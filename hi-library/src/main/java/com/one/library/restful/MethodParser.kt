@@ -9,7 +9,7 @@ import java.lang.reflect.Type
 /**
  * @author  diaokaibin@gmail.com on 2021/12/29.
  */
-class MethodParser(private val baseUrl: String, method: Method, args: Array<Any>) {
+class MethodParser(private val baseUrl: String, method: Method) {
 
 
     private  var domainUrl: String?=null
@@ -31,7 +31,7 @@ class MethodParser(private val baseUrl: String, method: Method, args: Array<Any>
         parseMethodAnnotation(method)
 
         //parse method parameters such as path, filed
-        parseMethodParameters(method, args)
+//        parseMethodParameters(method, args)
 
         //parse method genric return type
         parseMethodReturnType(method)
@@ -196,8 +196,12 @@ class MethodParser(private val baseUrl: String, method: Method, args: Array<Any>
 
     }
 
-    fun newRequest(): HiRequest {
-        var request = HiRequest()
+    fun newRequest(method: Method, args: Array<out Any>?): HiRequest {
+
+        val arguments: Array<Any> = args as Array<Any>? ?: arrayOf()
+        parseMethodParameters(method, arguments)
+
+        val request = HiRequest()
         request.domainUrl = domainUrl
         request.returnType = returnType
         request.relativeUrl = relativeUrl
@@ -209,8 +213,8 @@ class MethodParser(private val baseUrl: String, method: Method, args: Array<Any>
     }
 
     companion object {
-        fun parse(baseUrl: String, method: Method, args: Array<Any>): MethodParser {
-            return MethodParser(baseUrl, method, args)
+        fun parse(baseUrl: String, method: Method): MethodParser {
+            return MethodParser(baseUrl, method)
         }
     }
 }

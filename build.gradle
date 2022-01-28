@@ -6,7 +6,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.android.tools.build:gradle:7.1.0'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
         // arouter 运行时候所做的工作在编译时候做
         classpath "com.alibaba:arouter-register:1.0.2"
