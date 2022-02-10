@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 22
+        targetSdk 30
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            buildConfigField("String", "BUILD_TIME", "\"" + buildTime() + "\"")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField("String", "BUILD_TIME", "\"" + buildTime() + "\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+def buildTime() {
+    return new Date().format("yyyy.MM.dd EE HH:mm:ss", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation project(path: ':hi-library')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(path: ':hi-ui')
+    implementation project(path: ':common')
+}
