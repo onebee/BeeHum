@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.demo1_fragment.*
 /**
  * @author  diaokaibin@gmail.com on 2021/11/17.
  */
-class Demo7Fragment : HiBaseFragment() {
+class CrashDemoFragment : HiBaseFragment() {
     
 
     override fun getLayoutId(): Int {
@@ -15,9 +15,13 @@ class Demo7Fragment : HiBaseFragment() {
     }
 
 
+
+
     override fun onResume() {
         super.onResume()
 
-        tv.text= "汽车"
+        tv.text= "Crash dem0"
+
+        tv.append("" + 1/0)
     }
 }
