@@ -14,7 +14,7 @@ class DebugTools {
 
     fun buildVersion(): String {
         //TODO :修改
-        return "构建版本:" + BuildConfig.BUILD_TIME
+        return "构建版本:" +    "V-1.0"
     }
 
 

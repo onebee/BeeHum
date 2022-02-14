@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:gravity="center"
@@ -11,14 +12,18 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/color_000"
-        android:textSize="@dimen/font_14" />
+        android:textSize="@dimen/font_14"
+        tools:text="title" />
 
     <TextView
         android:id="@+id/item_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/color_999"
-        android:visibility="gone"
         android:gravity="center"
-        android:textSize="11sp" />
+        android:textColor="@color/color_999"
+        android:textSize="11sp"
+        android:visibility="gone"
+
+        tools:text="desc"
+        tools:visibility="visible" />
 </LinearLayout>

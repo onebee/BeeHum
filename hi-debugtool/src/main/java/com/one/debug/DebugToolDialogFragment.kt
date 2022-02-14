@@ -20,6 +20,11 @@ class DebugToolDialogFragment : DialogFragment() {
 
     private val debugTools = arrayOf(DebugTools::class.java)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogFragmentStyle)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,11 +33,12 @@ class DebugToolDialogFragment : DialogFragment() {
 
         val parent = dialog?.window?.findViewById<ViewGroup>(android.R.id.content) ?: container
         val view = inflater.inflate(R.layout.hi_debug_tool, parent, false)
-
+        dialog?.window?.setGravity(Gravity.CENTER_HORIZONTAL)
         dialog?.window?.setLayout(
-            (HiDisplayUtil.getDisplayHeightInPx(view.context) * 0.7f).toInt(),
+            (HiDisplayUtil.getDisplayHeightInPx(view.context) * 0.5f).toInt(),
             WindowManager.LayoutParams.WRAP_CONTENT
         )
+
 
         dialog?.window?.setBackgroundDrawableResource(R.drawable.shape_hi_debug_tool)
         return view
