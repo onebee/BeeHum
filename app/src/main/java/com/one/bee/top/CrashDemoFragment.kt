@@ -22,6 +22,6 @@ class CrashDemoFragment : HiBaseFragment() {
 
         tv.text= "Crash dem0"
 
-        tv.append("" + 1/0)
+
     }
 }
