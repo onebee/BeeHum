@@ -20,4 +20,14 @@
         />
 
 
+    <Button
+        android:id="@+id/btn_puhui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_cate"
+        app:layout_constraintRight_toRightOf="@+id/tv_cate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cate"
+        android:text="平安普惠"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
