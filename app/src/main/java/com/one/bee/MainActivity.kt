@@ -1,8 +1,10 @@
 package com.one.bee
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.DialogFragment
 import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
@@ -11,6 +13,13 @@ import com.one.library.log.HiViewPrinter
 import java.lang.reflect.InvocationTargetException
 
 class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
+
+    private val PERMISSIONS = arrayOf(
+        Manifest.permission.READ_CONTACTS,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
+
 
     var viewPrinter: HiViewPrinter? = null
     var activityLogic: MainActivityLogic? = null
@@ -26,6 +35,8 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
 
         viewPrinter!!.viewProvider.showFloatingView()
 
+
+        ActivityCompat.requestPermissions(this, PERMISSIONS, 25)
 
     }
 

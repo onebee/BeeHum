@@ -8,5 +8,44 @@
 
 
 
+    <TextView
+        android:id="@+id/tv_tips"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通话记录一键导入到通讯录"
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/et_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/tv_tips"
+        app:layout_constraintRight_toRightOf="@id/tv_tips"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tips"
+        android:hint="请输入命名前缀"
+        />
+
+    <Button
+        android:id="@+id/btn_op"
+        app:layout_constraintLeft_toLeftOf="@id/et_tips"
+        app:layout_constraintRight_toRightOf="@id/et_tips"
+        app:layout_constraintTop_toBottomOf="@+id/et_tips"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一键导入"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

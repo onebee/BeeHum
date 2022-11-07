@@ -1,5 +1,6 @@
 package com.one.bee.top
 
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.one.bee.ExcelActivity
 import com.one.bee.R
 import com.one.bee.mo.BannerMo
 import com.one.common.ui.component.HiBaseFragment
@@ -68,6 +70,12 @@ class BannerFragment : HiBaseFragment() {
 
         tv_switch.setOnClickListener {
 
+
+        }
+
+        btn_excel.setOnClickListener{
+
+            startActivity(Intent(context,ExcelActivity::class.java))
 
         }
 
