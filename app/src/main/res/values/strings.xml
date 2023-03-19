@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BeeHum</string>
+    <string name="app_name">蜂鸟</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_nav">NavActivity</string>
@@ -12,7 +12,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+    <string name="next">Next</string>00
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>

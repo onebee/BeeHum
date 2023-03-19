@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.DialogFragment
+import com.gyf.immersionbar.ImmersionBar
 import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLogManager
@@ -27,6 +28,10 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        ImmersionBar.with(this)
+//            .statusBarColor(R.color.colorPrimary)
+//            .init()
 
         activityLogic = MainActivityLogic(this, savedInstanceState)
 

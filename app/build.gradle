@@ -108,6 +108,8 @@ dependencies {
     implementation 'org.apache.poi:poi-ooxml:5.2.0'
     implementation 'cn.yhq:android-dialog:2.0.0'
 
-
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    // kotlin扩展（可选）
+    implementation 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
 
 }
