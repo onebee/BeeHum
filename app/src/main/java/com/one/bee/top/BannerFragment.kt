@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.one.bee.BankActivity
 import com.one.bee.ExcelActivity
 import com.one.bee.R
 import com.one.bee.mo.BannerMo
@@ -76,6 +77,12 @@ class BannerFragment : HiBaseFragment() {
         btn_excel.setOnClickListener{
 
             startActivity(Intent(context,ExcelActivity::class.java))
+
+        }
+
+        btn_bank.setOnClickListener{
+
+            startActivity(Intent(context,BankActivity::class.java))
 
         }
 

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BankActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_bank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bank5"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <View
+        android:id="@+id/view_base"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="客户"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bank" />
+
+
+    <TextView
+
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_name_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_name_title" />
+
+    <TextView
+        android:id="@+id/tv_store_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="评分要求"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_store_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B1"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_store_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_store_title" />
+
+
+    <TextView
+        android:id="@+id/tv_store_zd_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="平安宅抵贷评分"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_store_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_store_zd_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="满足"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_store_zd_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_store_zd_title" />
+
+
+
+    <TextView
+        android:id="@+id/tv_store_hrhf_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="好人好房评分要求"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_store_zd_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_store_hrhf_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不满足"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_store_hrhf_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_store_hrhf_title" />
+
+
+    <TextView
+        android:id="@+id/tv_store_qgt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="全国通评分要求"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_store_hrhf_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_store_qgt_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不满足"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_store_qgt_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_store_qgt_title" />
+
+    <View
+        android:id="@+id/view_div"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_store_qgt_title"
+        android:background="@color/color_gray1"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_dfkh_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="代发客户"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/view_div"
+        app:layout_goneMarginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_dfkh_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="否"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dfkh_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_dfkh_title"
+
+        />
+
+
+    <TextView
+        android:id="@+id/tv_whyg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我行员工"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dfkh_title"
+        app:layout_goneMarginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_whyg_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="否"
+        android:textColor="@color/bank_tv_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_whyg_title"
+        app:layout_constraintLeft_toRightOf="@+id/view_base"
+        app:layout_constraintTop_toTopOf="@+id/tv_whyg_title"
+        />
+
+    <View
+        android:id="@+id/view_div_2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_whyg_title"
+        android:background="@color/color_gray1"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_current_state"
+        app:layout_constraintTop_toBottomOf="@+id/view_div_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bank_tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+
+        android:text="当前状态"
+        />
+
+    <View
+        android:id="@+id/view_div_3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_state"
+        android:background="@color/color_gray1"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_current_state_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/view_div_3"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        android:textColor="@color/bank_tv_title"
+        android:textSize="16sp"
+        android:text="2022.11.14 17:30:25  初审通过 "
+        />
+
+
+    <TextView
+        android:textColor="#F10505"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_time"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_state_content"
+        android:paddingRight="5dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name_title"
+        android:text="2022.11.15 15:55:43  终审综合评定不足,做线上否决处理"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
