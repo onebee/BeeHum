@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.one.library.log.HiLog;
 import com.one.ui.R;
 import com.one.ui.tab.common.IHiTab;
 
@@ -90,7 +91,12 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
 
     @Override
     public void onTabSelectedChange(int index, @Nullable HiTabBottomInfo<?> prevInfo, @Nullable HiTabBottomInfo<?> nextInfo) {
-//        HiLog.i("click index " + index );
+        if (prevInfo != null && nextInfo != null) {
+            HiLog.i("click index " + index + " , curTab = " + tabInfo.name + " , prev = " + prevInfo.name
+                    + " , next = " + nextInfo.name
+            );
+        }
+
         if (prevInfo != tabInfo && nextInfo != tabInfo || prevInfo == nextInfo) {
             return;
         }

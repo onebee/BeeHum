@@ -57,7 +57,7 @@ public class MainActivityLogic {
 
     private void initTabBottom() {
         hiTabBottomLayout = activityProvider.findViewById(R.id.tab_layout);
-        hiTabBottomLayout.setTabAlpha(0.55f);
+        hiTabBottomLayout.setTabAlpha(0.85f);
 
         int defaultColor = activityProvider.getResources().getColor(R.color.tabBottomDefaultColor);
         int tintColor = activityProvider.getResources().getColor(R.color.tabBottomTintColor);

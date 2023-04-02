@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.demo1_fragment.tv
 import kotlinx.android.synthetic.main.exectuor_fragment.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
 
 /**
  * @author  diaokaibin@gmail.com on 2021/11/17.
@@ -27,7 +28,6 @@ class HiExecutorSamplerFragment : HiBaseFragment() {
 
     override fun onResume() {
         super.onResume()
-
 
         // 任务优先级去执行
         btn1.setOnClickListener {
@@ -76,7 +76,7 @@ class HiExecutorSamplerFragment : HiBaseFragment() {
                 override fun onPrepare() {
                     super.onPrepare()
 
-                    tv.text= "loading .... "
+                    tv?.text= "loading .... "
                 }
             })
 

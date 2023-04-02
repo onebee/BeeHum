@@ -20,6 +20,7 @@ import com.one.ui.banner.indicator.HiCircleIndicator
 import com.one.ui.banner.indicator.HiIndicator
 import kotlinx.android.synthetic.main.banner_fragment.*
 import kotlinx.android.synthetic.main.demo1_fragment.*
+import java.sql.ParameterMetaData
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -61,12 +62,11 @@ class BannerFragment : HiBaseFragment() {
             viewGroup.getChildAt(i)
 
 
-
         }
-        initView(HiCircleIndicator(context!!),false)
+        initView(HiCircleIndicator(context!!), false)
         auto_play.setOnCheckedChangeListener { buttonView, isChecked ->
             autoPlay = isChecked
-            initView(HiCircleIndicator(context!!),autoPlay)
+            initView(HiCircleIndicator(context!!), autoPlay)
         }
 
         tv_switch.setOnClickListener {
@@ -74,21 +74,21 @@ class BannerFragment : HiBaseFragment() {
 
         }
 
-        btn_excel.setOnClickListener{
+        btn_excel.setOnClickListener {
 
-            startActivity(Intent(context,ExcelActivity::class.java))
+            startActivity(Intent(context, ExcelActivity::class.java))
 
         }
 
-        btn_bank.setOnClickListener{
+        btn_bank.setOnClickListener {
 
-            startActivity(Intent(context,BankActivity::class.java))
+            startActivity(Intent(context, BankActivity::class.java))
 
         }
 
     }
 
-    private fun initView(indicator: HiIndicator<*>,autoPlay: Boolean) {
+    private fun initView(indicator: HiIndicator<*>, autoPlay: Boolean) {
         val moList: MutableList<HiBannerMo> = ArrayList()
         for (i in 0..7) {
             val mo = BannerMo()
@@ -116,4 +116,9 @@ class BannerFragment : HiBaseFragment() {
 
         }
     }
+}
+
+
+fun printType(param: Any) {
+    println("$param is ${param::class.java.simpleName} type")
 }

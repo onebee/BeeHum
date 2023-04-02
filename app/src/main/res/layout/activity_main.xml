@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab_layout"
     android:layout_width="match_parent"
+    android:background="@color/color_00a"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
     <com.one.common.tab.HiFragmentTabView
+        android:background="@color/color_80eee"
         android:id="@+id/fragment_tab_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

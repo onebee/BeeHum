@@ -31,7 +31,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
 
     private final List<OnTabSelectedListener<HiTabBottomInfo<?>>> tabSelectedListeners = new ArrayList<>();
     private HiTabBottomInfo<?> selectedInfo;
-    private float bottomAlpha = 1f;
+    private float bottomAlpha = 0.5f;
     private float tabBottomHeight = 50;
     private float bottomLineHeight = 5.5f;
     private String bottomLineColor = "#def0e1";

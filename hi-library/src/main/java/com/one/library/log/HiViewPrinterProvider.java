@@ -40,7 +40,7 @@ public class HiViewPrinterProvider {
         params.gravity = Gravity.BOTTOM | Gravity.END;
         View floatingView = genFloatingView();
         floatingView.setTag(TAG_FLOATING_VIEW);
-        floatingView.setBackgroundColor(Color.BLUE);
+        floatingView.setBackgroundColor(Color.YELLOW);
         floatingView.setAlpha(0.8f);
         params.bottomMargin = HiDisplayUtil.dp2px(100, rootView.getResources());
         rootView.addView(genFloatingView(),params);

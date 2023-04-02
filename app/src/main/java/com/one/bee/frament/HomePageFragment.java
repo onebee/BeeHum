@@ -1,21 +1,25 @@
 package com.one.bee.frament;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.one.bee.R;
+import com.one.bee.top.BannerFragment;
+import com.one.bee.top.CrashDemoFragment;
 import com.one.bee.top.Demo10Fragment;
 import com.one.bee.top.Demo11Fragment;
-import com.one.bee.top.BannerFragment;
-import com.one.bee.top.RefreshFragment;
 import com.one.bee.top.Demo3Fragment;
-import com.one.bee.top.HiExecutorSamplerFragment;
-import com.one.bee.top.HttpFragment;
-import com.one.bee.top.HiARouterFragment;
-import com.one.bee.top.CrashDemoFragment;
 import com.one.bee.top.Demo8Fragment;
 import com.one.bee.top.Demo9Fragment;
+import com.one.bee.top.HiARouterFragment;
+import com.one.bee.top.HiExecutorSamplerFragment;
+import com.one.bee.top.HttpFragment;
+import com.one.bee.top.RefreshFragment;
 import com.one.common.ui.component.HiBaseFragment;
+import com.one.library.log.HiLog;
 import com.one.ui.tab.common.IHiTabLayout;
 import com.one.ui.tab.top.HiTabTopInfo;
 import com.one.ui.tab.top.HiTabTopLayout;
@@ -102,12 +106,74 @@ public class HomePageFragment extends HiBaseFragment {
             }
         });
         hiTabTopLayout.defaultSelected(infoList.get(0));
+
+        Thread thread = new Thread();
+        thread.start();
+
+
+
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
+        SubThread subThread = new SubThread("SUB THREAD");
+
+        subThread.start();
+
+
+        Handler handler = new Handler(subThread.getLooper()){
+
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                HiLog.i("handleMessage : "+ msg.what);
+                HiLog.i( "handleMessage : " + Thread.currentThread().getName());
+            }
+        };
+
+        handler.sendEmptyMessage(6666666);
+
+    }
+
+    class SubThread extends Thread{
+
+        private Looper looper;
+
+        public SubThread(String thread) {
+            super(thread);
+        }
+
+
+        @Override
+        public void run() {
+            super.run();
+
+            Looper.prepare();
+            synchronized (this) {
+                looper = Looper.myLooper();
+                notifyAll();
+            }
+
+            Looper.loop();
+
+
+        }
+
+        public Looper getLooper() {
+            synchronized (this) {
+                if (looper == null && isAlive()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+            return looper;
+        }
     }
 
     private void initFragmentTabView() {

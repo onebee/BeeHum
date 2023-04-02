@@ -4,9 +4,10 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
+import android.widget.FrameLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.view.children
 import androidx.fragment.app.DialogFragment
-import com.gyf.immersionbar.ImmersionBar
 import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLogManager
@@ -30,7 +31,7 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         setContentView(R.layout.activity_main)
 
 //        ImmersionBar.with(this)
-//            .statusBarColor(R.color.colorPrimary)
+//            .statusBarColor(R.color.color_e75)
 //            .init()
 
         activityLogic = MainActivityLogic(this, savedInstanceState)
@@ -46,6 +47,16 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        println("ddd")
+
+        val rootView: FrameLayout = findViewById<FrameLayout>(android.R.id.content)
+        for (v in rootView.children){
+
+            println("${v.tag}")
+        }
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
