@@ -44,8 +44,8 @@ public class HomePageFragment extends HiBaseFragment {
             "ARouter",
             "汽车",
             "百货",
-            "家居",
-            "装修",
+            "Retrofit",
+            "OkHttp",
             "运动"
     };
 
