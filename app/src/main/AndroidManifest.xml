@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeeHum"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".sample.HandlerSampleActivity"
+            android:exported="false" />
         <activity
             android:name=".BankActivity"
             android:exported="false">

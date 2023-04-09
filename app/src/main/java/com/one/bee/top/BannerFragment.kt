@@ -111,7 +111,7 @@ class BannerFragment : HiBaseFragment() {
             val titleView: TextView = viewHolder.findViewById(R.id.tv_title)
             titleView.text = mo.url
 
-            HiLog.i(" pos = " + pos.toString() + " url : " + mo.url)
+//            HiLog.i(" pos = " + pos.toString() + " url : " + mo.url)
 
 
         }

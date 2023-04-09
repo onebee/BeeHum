@@ -1,6 +1,11 @@
 package com.one.bee.frament;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+
 import com.one.bee.R;
+import com.one.bee.sample.HandlerSampleActivity;
 import com.one.common.ui.component.HiBaseFragment;
 
 /**
@@ -8,8 +13,34 @@ import com.one.common.ui.component.HiBaseFragment;
  */
 public class RecommendFragment extends HiBaseFragment {
 
+
+    Button btnHandler;
+
     @Override
     public int getLayoutId() {
+
         return R.layout.fragment_recommond;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        btnHandler = getActivity().findViewById(R.id.btn_handler);
+        btnHandler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), HandlerSampleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
     }
 }

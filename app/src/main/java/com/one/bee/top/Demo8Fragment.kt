@@ -37,19 +37,19 @@ class Demo8Fragment : HiBaseFragment() {
 
         val api = retrofit.create(Api::class.java)
 
-        Thread {
-            val execute = api.test().execute()
-            if (execute.isSuccessful) {
-                val body = execute.body()
-                val code = execute.code()
-
-
-                HiLog.e(body!!.toString())
-//                HiLog.e(body!!.cancel)
-            }
-
-
-        }.start()
+//        Thread {
+//            val execute = api.test().execute()
+//            if (execute.isSuccessful) {
+//                val body = execute.body()
+//                val code = execute.code()
+//
+//
+//                HiLog.e(body!!.toString())
+////                HiLog.e(body!!.cancel)
+//            }
+//
+//
+//        }.start()
 
 
     }

@@ -44,7 +44,8 @@ object CrashHandler {
                 defaultExceptionHandler.uncaughtException(t, e)
             }
 
-            restartApp()
+            // TODO : 先不重启应用了
+//            restartApp()
         }
 
         private fun restartApp() {
