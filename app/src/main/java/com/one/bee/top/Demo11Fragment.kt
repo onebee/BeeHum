@@ -11,13 +11,13 @@ class Demo11Fragment : HiBaseFragment() {
     
 
     override fun getLayoutId(): Int {
-        return R.layout.demo1_fragment
+        return R.layout.fragment_customview
     }
 
 
     override fun onResume() {
         super.onResume()
 
-        tv.text= "运动"
+        tv.text= "自定义View Sample"
     }
 }

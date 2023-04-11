@@ -46,7 +46,7 @@ public class HomePageFragment extends HiBaseFragment {
             "百货",
             "Retrofit",
             "OkHttp",
-            "运动"
+            "View"
     };
 
     Class[] fs = new Class[]{
