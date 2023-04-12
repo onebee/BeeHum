@@ -39,7 +39,7 @@ public class SplitView extends View {
 
     private void init(){
         mPaint = new Paint();
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.girl);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.home_selected);
         for (int i = 0; i < mBitmap.getWidth(); i++) {
             for (int j = 0; j < mBitmap.getHeight(); j++) {
                 Ball ball = new Ball();

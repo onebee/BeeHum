@@ -10,4 +10,21 @@
     <color name="bank_tv_title">#4F4A4A</color>
     <color name="bank_tv_content">#241D17</color>
     <color name="pingan_color">#EB681B</color>
+
+    <color name="splash_bg">#F8F6EC</color>
+    <color name="orange">#FF9600</color>
+    <color name="aqua">#02D1AC</color>
+    <color name="yellow">#FFD200</color>
+    <color name="blue">#00C6FF</color>
+    <color name="green">#00E099</color>
+    <color name="pink">#FF3892</color>
+
+    <array name="splash_circle_colors">
+        <item>@color/blue</item>
+        <item>@color/green</item>
+        <item>@color/pink</item>
+        <item>@color/orange</item>
+        <item>@color/aqua</item>
+        <item>@color/yellow</item>
+    </array>
 </resources>
