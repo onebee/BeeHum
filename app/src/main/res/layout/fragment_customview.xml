@@ -16,11 +16,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.one.bee.view.DashboardView
-        android:background="@color/color_646"
+    <com.one.bee.view.XfermodeEraserView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
