@@ -12,6 +12,8 @@ import android.view.View;
 
 import com.one.bee.R;
 
+import static com.one.bee.view.ColorFilter.colormatrix_huan_huang;
+
 
 public class ColorFilterView extends View {
 
@@ -20,18 +22,22 @@ public class ColorFilterView extends View {
     private ColorMatrixColorFilter mColorMatrixColorFilter;
 
     public ColorFilterView(Context context) {
-        super(context);
-        mPaint = new Paint();
+        this(context,null);
 
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.girl);
     }
 
     public ColorFilterView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
     }
 
     public ColorFilterView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        mPaint = new Paint();
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.girl);
     }
 
     @Override
@@ -76,9 +82,9 @@ public class ColorFilterView extends View {
 //        cm.setSaturation(2);
 
         //色调调节
-        cm.setRotate(0, 45);
+        cm.setRotate(0, 045);
 
-        mColorMatrixColorFilter = new ColorMatrixColorFilter(cm);
+        mColorMatrixColorFilter = new ColorMatrixColorFilter(colormatrix_huan_huang);
         mPaint.setColorFilter(mColorMatrixColorFilter);
         canvas.drawBitmap(mBitmap, 100, 0, mPaint);
 
