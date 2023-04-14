@@ -17,11 +17,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/content"
-        />
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/content"-->
+<!--        />-->
 
 
 <!--    <com.one.bee.view.DragBubbleView-->
@@ -43,7 +43,11 @@
 <!--        />-->
 
 
-    <com.one.bee.view.PathMeasureView
+<!--    <com.one.bee.view.PathMeasureView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+    <com.one.bee.view.MapView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </FrameLayout>

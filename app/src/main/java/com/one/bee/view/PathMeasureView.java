@@ -9,6 +9,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.util.AttributeSet;
 import android.view.View;
 
 import com.one.bee.R;
@@ -19,7 +20,7 @@ public class PathMeasureView extends View {
     private Paint mLinePaint = new Paint(); //坐标系
     private Bitmap mBitmap;
 
-    public PathMeasureView(Context context) {
+    public PathMeasureView(Context context, AttributeSet attributeSet) {
         super(context);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(Color.BLACK);
