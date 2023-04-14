@@ -102,7 +102,12 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".sample.player.activity.PlayerActivity"/>
+        <activity android:name=".sample.player.activity.PlayerActivity"
+            android:theme="@style/AppTheme"
+            >
+
+
+        </activity>
         <service android:name=".sample.player.service.MusicService"/>
     </application>
 

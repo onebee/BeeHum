@@ -52,4 +52,5 @@
         <item name="android:thumb">@drawable/ic_seekbar_thumb</item>
     </style>
 
+
 </resources>
