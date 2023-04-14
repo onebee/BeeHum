@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import com.one.bee.R;
 import com.one.bee.sample.HandlerSampleActivity;
+import com.one.bee.sample.player.activity.PlayerActivity;
 import com.one.common.ui.component.HiBaseFragment;
 
 /**
@@ -14,7 +15,7 @@ import com.one.common.ui.component.HiBaseFragment;
 public class RecommendFragment extends HiBaseFragment {
 
 
-    Button btnHandler;
+    Button btnHandler,btnPlayer;
 
     @Override
     public int getLayoutId() {
@@ -34,6 +35,14 @@ public class RecommendFragment extends HiBaseFragment {
             }
         });
 
+        btnPlayer = getActivity().findViewById(R.id.btn_player);
+        btnPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PlayerActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
