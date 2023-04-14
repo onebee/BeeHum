@@ -101,6 +101,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".sample.player.activity.PlayerActivity"/>
+        <service android:name=".sample.player.service.MusicService"/>
     </application>
 
 </manifest>
