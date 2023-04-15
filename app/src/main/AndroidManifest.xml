@@ -17,7 +17,7 @@
         android:icon="@mipmap/img8"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/img8"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeeHum"
         android:usesCleartextTraffic="true">
@@ -109,6 +109,7 @@
 
         </activity>
         <service android:name=".sample.player.service.MusicService"/>
+
     </application>
 
 </manifest>

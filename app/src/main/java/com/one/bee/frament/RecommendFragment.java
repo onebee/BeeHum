@@ -6,7 +6,6 @@ import android.widget.Button;
 
 import com.one.bee.R;
 import com.one.bee.sample.HandlerSampleActivity;
-import com.one.bee.sample.player.activity.PlayerActivity;
 import com.one.common.ui.component.HiBaseFragment;
 
 /**
@@ -39,8 +38,14 @@ public class RecommendFragment extends HiBaseFragment {
         btnPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PlayerActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), PlayerActivity.class);
+//                startActivity(intent);
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
