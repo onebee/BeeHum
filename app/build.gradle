@@ -4,8 +4,8 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 
-
 }
+
 
 android {
     compileSdk 30
@@ -118,5 +118,4 @@ dependencies {
 
     debugImplementation('com.github.bzcoder:blockcanarycompat-android:0.0.4')
     releaseImplementation('com.github.bzcoder:blockcanarycompat-android-no-op:0.0.4')
-
 }

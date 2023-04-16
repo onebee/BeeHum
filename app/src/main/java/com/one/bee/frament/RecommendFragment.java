@@ -1,6 +1,8 @@
 package com.one.bee.frament;
 
 import android.content.Intent;
+import android.os.Debug;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,9 +24,12 @@ public class RecommendFragment extends HiBaseFragment {
         return R.layout.fragment_recommond;
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
+
+        Debug.startMethodTracing("sample");
         btnHandler = getActivity().findViewById(R.id.btn_handler);
         btnHandler.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,9 +53,17 @@ public class RecommendFragment extends HiBaseFragment {
                 }
             }
         });
+        test();
+
+        Debug.stopMethodTracing();
 
     }
 
+
+
+    public void test(){
+        SystemClock.sleep(2000);
+    }
     @Override
     public void onResume() {
         super.onResume();
