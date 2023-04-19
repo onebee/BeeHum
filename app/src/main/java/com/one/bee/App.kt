@@ -9,6 +9,7 @@ import com.one.library.log.HiConsolePrinter
 import com.one.library.log.HiFilePrinter
 import com.one.library.log.HiLogConfig
 import com.one.library.log.HiLogManager
+import leakcanary.LeakCanary
 
 
 /**
@@ -39,6 +40,8 @@ class App : HiBaseApplication() {
             HiFilePrinter.getInstance(applicationContext.cacheDir.absolutePath, 0)
         )
         CrashMgr.init()
+
+
     }
 
 

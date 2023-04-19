@@ -118,4 +118,7 @@ dependencies {
 
     debugImplementation('com.github.bzcoder:blockcanarycompat-android:0.0.4')
     releaseImplementation('com.github.bzcoder:blockcanarycompat-android-no-op:0.0.4')
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
+
 }

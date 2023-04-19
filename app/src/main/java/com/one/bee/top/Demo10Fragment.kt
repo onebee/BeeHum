@@ -1,6 +1,10 @@
 package com.one.bee.top
 
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ColorDrawable
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
 import com.one.bee.R
 import com.one.common.ui.component.HiBaseFragment
 import com.one.library.log.HiLog
@@ -8,6 +12,8 @@ import com.one.library.util.SquareUtils
 import kotlinx.android.synthetic.main.demo1_fragment.*
 import kotlinx.android.synthetic.main.demo1_fragment.tv
 import kotlinx.android.synthetic.main.fragment_okhttp.*
+import leakcanary.GcTrigger
+import leakcanary.LeakCanary
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -49,5 +55,9 @@ class Demo10Fragment : HiBaseFragment() {
             .config(Bitmap.Config.ARGB_4444)
             .into(pie_iv)
 
+
+        val bitmap = Bitmap.createBitmap(200,200,Bitmap.Config.ALPHA_8)
+        val d = ColorDrawable()
+        d.toBitmap()
     }
 }

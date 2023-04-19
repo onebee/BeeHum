@@ -52,6 +52,11 @@ class DashboardView(context: Context?, attrs: AttributeSet?) :
             height / 2f + LENGTH * sin(markToRadians(MARK)).toFloat(), paint)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
+    }
+
     private fun markToRadians(mark: Int) =
         Math.toRadians((90 + OPEN_ANGLE / 2f + (360 - OPEN_ANGLE) / 20f * mark).toDouble())
 }
