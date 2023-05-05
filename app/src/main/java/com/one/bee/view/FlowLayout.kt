@@ -131,4 +131,8 @@ class FlowLayout(context: Context, attributeSet: AttributeSet?) : ViewGroup(cont
         return MarginLayoutParams(context,attrs)
     }
 
+    override fun shouldDelayChildPressedState(): Boolean {
+        return super.shouldDelayChildPressedState()
+    }
+
 }

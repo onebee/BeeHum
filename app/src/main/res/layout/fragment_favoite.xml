@@ -18,9 +18,16 @@
         />
 
 
-    <com.one.bee.sample.view.WeekTextClock
+    <com.one.bee.view.ScalableImageView
+        android:id="@+id/vi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/aqua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
