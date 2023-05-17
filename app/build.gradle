@@ -3,9 +3,16 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+//    id 'com.one.bit'
 
 }
 
+apply plugin: 'com.one.bit'
+
+onebit {
+
+    name "Kaibin!!!!!!!!!"
+}
 
 android {
     compileSdk 30

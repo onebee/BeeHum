@@ -5,10 +5,12 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.transition.TransitionManager
 import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.ViewCompat
 import com.one.bee.utils.dp
@@ -58,6 +60,7 @@ class ScalableImageView(context: Context?, attrs: AttributeSet?) : View(context,
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
+
 
         offsetX = (width - IMAGE_SIZE) / 2f
         offsetY = (height - IMAGE_SIZE) / 2f
