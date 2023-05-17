@@ -11,5 +11,10 @@ class OnePlugin implements Plugin<Project> {
             println "hello ${extension.name}!"
 
         }
+
+//        def transform = new OneBitTransform()
+//        def baseExtension = project.extensions.getByType(BaseExtension)
+//
+//        baseExtension.reg
     }
 }

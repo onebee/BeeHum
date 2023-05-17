@@ -19,4 +19,5 @@ gradlew.bat/
 *.iml
 keyStore.gradle
 keystore
+gradle.properties
 

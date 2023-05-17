@@ -7,12 +7,12 @@ plugins {
 
 }
 
-apply plugin: 'com.one.bit'
-
-onebit {
-
-    name "Kaibin!!!!!!!!!"
-}
+//apply plugin: 'com.one.bit'
+//
+//onebit {
+//
+//    name "Kaibin!!!!!!!!!"
+//}
 
 android {
     compileSdk 30
