@@ -4,22 +4,27 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLog
 import kotlinx.android.synthetic.main.activity_excel.*
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import java.io.File
 import java.io.FileInputStream
 import javax.xml.xpath.XPathConstants.STRING
 
 
-class ExcelActivity : AppCompatActivity() {
+class ExcelActivity : HiBaseActivity() {
 
     var location: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_excel)
+        EventBus().register(this)
     }
 
 
@@ -36,6 +41,18 @@ class ExcelActivity : AppCompatActivity() {
 
 
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun receiveBusMeg(msg:String) {
+
+        HiLog.d(" event receive " + msg)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        EventBus().unregister(this)
     }
 
 

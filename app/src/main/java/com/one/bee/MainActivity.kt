@@ -12,6 +12,9 @@ import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLogManager
 import com.one.library.log.HiViewPrinter
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import java.lang.reflect.InvocationTargetException
 
 class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
@@ -44,6 +47,7 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
 
         ActivityCompat.requestPermissions(this, PERMISSIONS, 25)
 
+
     }
 
 
@@ -52,10 +56,12 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         println("ddd")
 
         val rootView: FrameLayout = findViewById<FrameLayout>(android.R.id.content)
-        for (v in rootView.children){
+        for (v in rootView.children) {
 
             println("${v.tag}")
         }
+
+        EventBus.getDefault().post("hello event 3.0 net ")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -69,7 +75,7 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         super.onActivityResult(requestCode, resultCode, data)
         val fragments = supportFragmentManager.fragments
         for (fragment in fragments) {
-            fragment.onActivityResult(requestCode,resultCode, data)
+            fragment.onActivityResult(requestCode, resultCode, data)
         }
     }
 
@@ -96,4 +102,7 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
         }
         return super.onKeyDown(keyCode, event)
     }
+
+
+
 }

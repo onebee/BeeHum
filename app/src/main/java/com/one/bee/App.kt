@@ -9,7 +9,7 @@ import com.one.library.log.HiConsolePrinter
 import com.one.library.log.HiFilePrinter
 import com.one.library.log.HiLogConfig
 import com.one.library.log.HiLogManager
-import leakcanary.LeakCanary
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -41,6 +41,8 @@ class App : HiBaseApplication() {
         )
         CrashMgr.init()
 
+//        val eventBus = EventBus.builder().addIndex(MyEventBusIndex()).build()
+//        EventBus.builder().addIndex(EventBusIndex()).installDefaultEventBus()
 
     }
 
