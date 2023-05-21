@@ -19,7 +19,6 @@ import com.one.bee.top.HiExecutorSamplerFragment;
 import com.one.bee.top.HttpFragment;
 import com.one.bee.top.RefreshFragment;
 import com.one.common.ui.component.HiBaseFragment;
-import com.one.library.log.HiLog;
 import com.one.ui.tab.common.IHiTabLayout;
 import com.one.ui.tab.top.HiTabTopInfo;
 import com.one.ui.tab.top.HiTabTopLayout;
@@ -107,8 +106,8 @@ public class HomePageFragment extends HiBaseFragment {
         });
         hiTabTopLayout.defaultSelected(infoList.get(0));
 
-        Thread thread = new Thread();
-        thread.start();
+//        Thread thread = new Thread();
+//        thread.start();
 
 
 
@@ -129,12 +128,12 @@ public class HomePageFragment extends HiBaseFragment {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
-                HiLog.i("handleMessage : "+ msg.what);
-                HiLog.i( "handleMessage : " + Thread.currentThread().getName());
+//                HiLog.i("handleMessage : "+ msg.what);
+//                HiLog.i( "handleMessage : " + Thread.currentThread().getName());
             }
         };
 
-        handler.sendEmptyMessage(6666666);
+//        handler.sendEmptyMessage(6666666);
 
     }
 

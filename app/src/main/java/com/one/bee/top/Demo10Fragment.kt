@@ -56,8 +56,8 @@ class Demo10Fragment : HiBaseFragment() {
             .into(pie_iv)
 
 
-        val bitmap = Bitmap.createBitmap(200,200,Bitmap.Config.ALPHA_8)
-        val d = ColorDrawable()
-        d.toBitmap()
+//        val bitmap = Bitmap.createBitmap(200,200,Bitmap.Config.ALPHA_8)
+//        val d = ColorDrawable()
+//        d.toBitmap()
     }
 }

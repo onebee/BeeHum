@@ -3,19 +3,17 @@ package com.one.bee
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLog
-import kotlinx.android.synthetic.main.activity_excel.*
+import kotlinx.android.synthetic.main.activity_excel.btn_operate
+import kotlinx.android.synthetic.main.activity_excel.tv_select_file
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.ss.usermodel.Workbook
-import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.io.File
 import java.io.FileInputStream
-import javax.xml.xpath.XPathConstants.STRING
 
 
 class ExcelActivity : HiBaseActivity() {
@@ -24,12 +22,13 @@ class ExcelActivity : HiBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_excel)
-        EventBus().register(this)
+
     }
 
 
     override fun onStart() {
         super.onStart()
+        EventBus.getDefault().register(this)
         tv_select_file.setOnClickListener {
 
             openFile()
@@ -43,17 +42,19 @@ class ExcelActivity : HiBaseActivity() {
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
     fun receiveBusMeg(msg:String) {
 
         HiLog.d(" event receive " + msg)
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        EventBus().unregister(this)
-    }
+
 
 
     fun openFile() {

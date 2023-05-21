@@ -10,6 +10,7 @@ import androidx.core.view.children
 import androidx.fragment.app.DialogFragment
 import com.one.bee.logic.MainActivityLogic
 import com.one.common.ui.component.HiBaseActivity
+import com.one.library.log.HiLog
 import com.one.library.log.HiLogManager
 import com.one.library.log.HiViewPrinter
 import org.greenrobot.eventbus.EventBus
@@ -61,7 +62,8 @@ class MainActivity : HiBaseActivity(), MainActivityLogic.ActivityProvider {
             println("${v.tag}")
         }
 
-        EventBus.getDefault().post("hello event 3.0 net ")
+        EventBus.getDefault().postSticky("hello event 3.0 net ")
+        HiLog.i(" send event stick 3.0 net ")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

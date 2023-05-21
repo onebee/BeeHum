@@ -42,7 +42,7 @@ class App : HiBaseApplication() {
         CrashMgr.init()
 
 //        val eventBus = EventBus.builder().addIndex(MyEventBusIndex()).build()
-//        EventBus.builder().addIndex(EventBusIndex()).installDefaultEventBus()
+        EventBus.builder().addIndex(MyEventBusIndex()).installDefaultEventBus()
 
     }
 
