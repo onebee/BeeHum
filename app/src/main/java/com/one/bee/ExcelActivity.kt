@@ -3,6 +3,7 @@ package com.one.bee
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import com.one.common.ui.component.HiBaseActivity
 import com.one.library.log.HiLog
 import kotlinx.android.synthetic.main.activity_excel.btn_operate
@@ -51,7 +52,7 @@ class ExcelActivity : HiBaseActivity() {
     fun receiveBusMeg(msg:String) {
 
         HiLog.d(" event receive " + msg)
-
+        Toast.makeText(applicationContext, "receive = $msg" , Toast.LENGTH_SHORT).show()
     }
 
 

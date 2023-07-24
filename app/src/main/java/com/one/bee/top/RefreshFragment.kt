@@ -1,11 +1,16 @@
 package com.one.bee.top
 
+import android.widget.Toast
 import com.one.bee.R
 import com.one.common.ui.component.HiBaseFragment
+import com.one.library.log.HiLog
 import com.one.ui.refresh.HiRefresh
 import com.one.ui.refresh.HiTextOverView
 import kotlinx.android.synthetic.main.demo1_fragment.*
 import kotlinx.android.synthetic.main.fragment_refresh.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import java.util.logging.Handler
 
 /**
@@ -19,6 +24,15 @@ class RefreshFragment : HiBaseFragment() {
     }
 
 
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
     override fun onResume() {
         super.onResume()
 
@@ -40,5 +54,11 @@ class RefreshFragment : HiBaseFragment() {
         })
     }
 
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun receiveMsg(msg: String) {
+        HiLog.i(" RefreshFragment receive $msg")
+        Toast.makeText(context, "receive = $msg" , Toast.LENGTH_SHORT).show()
+    }
 
 }

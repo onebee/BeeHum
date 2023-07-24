@@ -54,7 +54,7 @@ class BannerFragment : HiBaseFragment() {
 
         val viewGroup = layoutView as ViewGroup
         val childCount = viewGroup.childCount
-        HiLog.i(" childCount = " + childCount)
+//        HiLog.i(" childCount = " + childCount)
 
         for (i in 0..childCount) {
 
